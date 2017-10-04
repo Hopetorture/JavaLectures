@@ -44,6 +44,24 @@ class AppGraph extends Frame
 
 class TextFieldDemo extends Applet implements ActionListener{
     TextField tf1, tf2;
+
+    public void init(){
+        tf1 = new TextField();
+        tf2 = new TextField(20);
+        Button btn = new Button("Перенести");
+        add(tf1);
+        add(tf2);
+        add(btn);
+
+        btn.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent ae){
+        String s =  tf1.getText();
+        tf2.setText(s);
+    }
+
+
 }
 
 public class Main {
