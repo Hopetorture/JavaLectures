@@ -1,6 +1,10 @@
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+
 import java.applet.*; // для TestBoxDemo
+
+import java.util.*; //BorderLayoutDemo
 
 class AppGraph extends Frame
 {
@@ -64,14 +68,29 @@ class TextFieldDemo extends Applet implements ActionListener{
 
 }
 
+class BorderLayoutDemo extends Applet{
+    BorderLayoutDemo(){init();}
+    public void init(){
+        String txt = "Это - средняя\n область апплета. в\n ней текстовая область";
+        setLayout(new BorderLayout());
+        add(new Button("Топ"), BorderLayout.NORTH);
+        add(new Button("Left"), BorderLayout.WEST);
+        add(new Button("Right"), BorderLayout.EAST);
+        add(new Label("Эта строка внизу"), BorderLayout.SOUTH);
+        add(new TextArea(txt), BorderLayout.CENTER);
+    }
+}
+
 public class Main {
 
     public static void main(String[] args) {
+        
             AppGraph f = new AppGraph();
             f.setSize(800,500);
             f.setTitle("Демонстранция графики");
             f.setBackground(Color.CYAN);
             f.setVisible(true);
+
 
     }
 }
@@ -96,5 +115,37 @@ public class Main {
 *
 * TextField; TextField(); TextField(String defaultText); TextField(int numChar); -- Шринна текстового поля(в символах)
 * TextField(String str, int numChar) ...
+*
+*
+* Текстовая область TextArea
+* TextArea(); TextArea(int numLimes, int numCols);
+* TextArea(String text, int numLines, int numCols, int sBars);
+* TextArea.SCROLLBARS_BOTH
+*                    _NONE
+*                    _VERTICAL_ONLY
+*                    HORIZONTAL_ONLY
+* 10. Менеджер компоновки.
+*     Flowlayout, BorderLayout.
+*
+*     Container.setLayout(LayoutManager obj) -> void
+*     .getPrefferedSize();
+*     .getMinimumSize();
+*
+*     Менеджер компоновки - FlowLayout
+*     FlowLayout();
+*
+*     ---  BorderLayout
+*     void add(Component comp, int region)
+*     BorderLayout.NORTH
+*                 .EAST
+*                 .WEST
+*                 .SOUTH
+*                 .CENTER
+*     */
+
+/*
+* Grid Layout
+* CardLayout
+* GridBagLayout
 *
 * */
